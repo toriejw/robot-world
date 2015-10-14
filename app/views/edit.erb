@@ -1,0 +1,14 @@
+<h1>add a robot</h1>
+
+<div class="input-group">
+  <form action="/robots/<%= @robot.id %>" method="post">
+    <input type="hidden" name="_method" value="PUT"/>
+    <input type="text" value="<%= @robot.name %>" class="form-control" name='robot[name]'/><br/>
+    <input type="text" value="<%= @robot.city %>" class="form-control" name='robot[city]'/><br/>
+    <input type="text" value="<%= @robot.state %>" class="form-control" name='robot[state]'/><br/>
+    <input type="text" value="<%= @robot.birthdate %>" class="form-control" name='robot[birthdate]'/><br/>
+    <input type="text" value="<%= @robot.date_hired %>" class="form-control" name='robot[date_hired]'/><br/>
+    <input type="text" value="<%= @robot.department %>" class="form-control" name='robot[department]'/><br/>
+    <input type="submit"/>
+  </form>
+</div>
