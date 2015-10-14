@@ -1,17 +1,17 @@
 ---
 robots:
 - id: 1
-  name: Pat
-  city: Pittsburgh
-  state: PA
-  birthdate: 3/31/91
-  date hired: 8/24/15
-  department: IT
+  name: Nala
+  city: Ottawa
+  state: 'ON'
+  birthdate: unkown
+  date hired: oct 2014
+  department: cat science
 - id: 2
-  name: Matt
-  city: Pueblo
-  state: CO
-  birthdate: 3/18/88
-  date hired: ''
-  department: IT
-total: 3
+  name: Genghis
+  city: Ottawa
+  state: 'ON'
+  birthdate: unkown
+  date hired: may 2015
+  department: trouble making
+total: 2
