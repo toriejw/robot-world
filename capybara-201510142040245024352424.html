@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="application.css">
+    <title>Robots</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>add a robot</h1>
+
+<div class="input-group">
+  <form action="/robots" method="post">
+    <input type="text" placeholder="name" class="form-control" name='robot[name]'/><br/>
+    <input type="text" placeholder="city" class="form-control" name='robot[city]'/><br/>
+    <input type="text" placeholder="state" class="form-control" name='robot[state]'/><br/>
+    <input type="text" placeholder="birthdate" class="form-control" name='robot[birthdate]'/><br/>
+    <input type="text" placeholder="date hired" class="form-control" name='robot[date_hired]'/><br/>
+    <input type="text" placeholder="department" class="form-control" name='robot[department]'/><br/>
+    <input type="submit"/>
+  </form>
+</div>
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src='js/bootstrap.js'></script>
+  </body>
+</html>

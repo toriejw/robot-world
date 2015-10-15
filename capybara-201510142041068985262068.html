@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="application.css">
+    <title>Robots</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>robots</h1>
+  <div class="well">
+    <a href="/robots/1"<ul>1: name 1</ul></a><br/>
+    <a href="/robots/1/edit"><button>edit</button></a><br/>
+    <form action="/robots/1" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+    </form>
+  </div>
+<br/>
+<a href="/"><button>home</button></a>
+<a href="/robots/new"><button>add a robot</button></a>
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src='js/bootstrap.js'></script>
+  </body>
+</html>

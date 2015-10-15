@@ -3,8 +3,8 @@ Bundler.require
 
 APP_ROOT = File.expand_path("..", __dir__)
 
-Dir.glob(File.join(APP_ROOT, 'app', 'controllers', '*.rb')).each { |file| require file }
-Dir.glob(File.join(APP_ROOT, 'app', 'models', '*.rb')).each { |file| require file }
+Dir.glob(File.join(APP_ROOT, 'app', 'controllers', '*.rb')) { |file| require file }
+Dir.glob(File.join(APP_ROOT, 'app', 'models', '*.rb')) { |file| require file }
 
 # configure TaskManagerApp settings
 class RobotDirectoryApp < Sinatra::Base
