@@ -9,7 +9,7 @@ class RobotDirectoryTest < Minitest::Test
                            :state => "state #{i}",
                          # :avatar => "#avatar {i}",
                            :birthdate => "birthdate #{i}",
-                           :date_hired => "date hired #{i}",
+                           :datehired => "date hired #{i}",
                            :department => "department #{i}"
                           })
     end
@@ -49,14 +49,13 @@ class RobotDirectoryTest < Minitest::Test
                                :state => "ON",
                              # :avatar => "#avatar {i}",
                                :birthdate => "unknown",
-                               :date_hired => "today",
+                               :datehired => "today",
                                :department => "cat science"
                               })
 
     updated_robot = RobotDirectory.find(1)
-
     assert_equal "nala", updated_robot.name
-    assert_equal "today", updated_robot.date_hired
+    assert_equal "today", updated_robot.datehired
     assert_equal 1, updated_robot.id
   end
 

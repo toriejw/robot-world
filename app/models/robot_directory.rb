@@ -12,7 +12,7 @@ class RobotDirectory
                              "state" => robot[:state],
                             #  "avatar" => robot[:avatar],
                              "birthdate" => robot[:birthdate],
-                             "date hired" => robot[:date_hired],
+                             "datehired" => robot[:datehired],
                              "department" => robot[:department]
                             }
     end
@@ -52,7 +52,7 @@ class RobotDirectory
       robot["state"] = data[:state]
       # robot["avatar"] = data[:avatar]
       robot["birthdate"] = data[:birthdate]
-      robot["date_hired"] = data[:date_hired]
+      robot["datehired"] = data[:datehired]
       robot["department"] = data[:department]
     end
   end

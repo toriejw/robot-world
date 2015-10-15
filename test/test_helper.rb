@@ -23,7 +23,7 @@ class FeatureTest < Minitest::Test
                            :state => "state #{i}",
                          # :avatar => "#avatar {i}",
                            :birthdate => "birthdate #{i}",
-                           :date_hired => "date hired #{i}",
+                           :datehired => "date hired #{i}",
                            :department => "department #{i}"
                           })
     end

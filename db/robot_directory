@@ -7,6 +7,7 @@ robots:
   birthdate: unkown
   date hired: oct 2014
   department: cat science
+  datehired: today
 - id: 2
   name: Genghis
   city: Ottawa

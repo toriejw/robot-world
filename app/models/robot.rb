@@ -1,5 +1,5 @@
 class Robot
-  attr_accessor :id, :name, :city, :state, :birthdate, :date_hired, :department
+  attr_accessor :id, :name, :city, :state, :birthdate, :datehired, :department
   def initialize(data)
     @id = data['id']
     @name = data['name']
@@ -7,7 +7,7 @@ class Robot
     @state = data['state']
   # @avatar = data['avatar']
     @birthdate = data['birthdate']
-    @date_hired = data['date_hired']
+    @datehired = data['datehired']
     @department = data['department']
   end
 end
