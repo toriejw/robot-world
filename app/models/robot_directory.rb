@@ -1,35 +1,23 @@
-require 'yaml/store'
-
 class RobotDirectory
-  def self.add(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['total']  ||= 0
-      database['total']  += 1
-      database['robots'] << {"id" => database['total'],
-                             "name" => robot[:name],
-                             "city" => robot[:city],
-                             "state" => robot[:state],
-                            #  "avatar" => robot[:avatar],
-                             "birthdate" => robot[:birthdate],
-                             "datehired" => robot[:datehired],
-                             "department" => robot[:department]
-                            }
-    end
+  def self.dataset
+    database.from(:robots)
+  end
+
+  def self.add(data)
+    dataset.insert(data)
   end
 
   def self.database
     if ENV["RACK_ENV"] == 'test'
-      @database ||= YAML::Store.new("db/robot_directory_test")
+      @database ||= Sequel.sqlite("db/robot_directory_test.sqlite3")
     else
-      @database ||= YAML::Store.new("db/robot_directory")
+      @database ||= Sequel.sqlite("db/robot_directory.sqlite3")
     end
   end
 
   def self.robots
-    database.transaction do
-      database['robots'] || []
-    end
+    robots = dataset.to_a
+    robots.map { |data| Robot.new(data) }
   end
 
   def self.all
@@ -41,7 +29,8 @@ class RobotDirectory
   end
 
   def self.find(id)
-    Robot.new(get_robot(id))
+    data = dataset.where(:id => id).to_a.first
+    Robot.new(data)
   end
 
   def self.update(id, data)
@@ -64,9 +53,6 @@ class RobotDirectory
   end
 
   def self.delete_all
-    database.transaction do
-      database['robots'] = []
-      database['total'] = 0
-    end
+    dataset.delete
   end
 end

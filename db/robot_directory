@@ -1,13 +1,5 @@
 ---
 robots:
-- id: 1
-  name: Nala
-  city: Ottawa
-  state: 'ON'
-  birthdate: unkown
-  date hired: oct 2014
-  department: cat science
-  datehired: today
 - id: 2
   name: Genghis
   city: Ottawa
@@ -15,4 +7,4 @@ robots:
   birthdate: unkown
   date hired: may 2015
   department: trouble making
-total: 3
+total: 4
