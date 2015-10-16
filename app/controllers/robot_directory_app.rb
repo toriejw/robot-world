@@ -7,7 +7,7 @@ class RobotDirectoryApp < Sinatra::Base
   end
 
   get '/robots' do
-    @robots = RobotDirectory.all
+    @robots = RobotDirectory.robots
     erb :index
   end
 

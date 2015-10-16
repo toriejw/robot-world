@@ -2,7 +2,6 @@ require_relative '../test_helper'
 
 class CreateRobotTest < FeatureTest
   def test_user_can_navigate_to_new_robot_page_from_home
-    skip
     visit '/'
     click_link 'Add a Robot'
 
@@ -10,7 +9,6 @@ class CreateRobotTest < FeatureTest
   end
 
   def test_user_can_navigate_to_new_robot_page_from_index
-    skip
     visit '/robots'
     click_link 'add a robot'
 
@@ -18,7 +16,6 @@ class CreateRobotTest < FeatureTest
   end
 
   def test_user_can_add_a_robot
-    skip
     visit '/robots/new'
     assert_equal '/robots/new', current_path
 
@@ -31,11 +28,10 @@ class CreateRobotTest < FeatureTest
     click_button 'Submit'
 
     assert_equal '/robots', current_path
-    assert page.has_content?('1: nala')
+    assert page.has_content?("#{RobotDirectory.robots.first.id}: nala")
   end
 
   def test_when_user_adds_a_robot_all_attributes_are_saved
-    skip
     visit '/robots/new'
 
     fill_in("robot[name]", with: "nala")
@@ -46,7 +42,7 @@ class CreateRobotTest < FeatureTest
     fill_in("robot[department]", with: "comp sci")
     click_button 'Submit'
 
-    click_link '1: nala'
+    click_link "#{RobotDirectory.robots.first.id}: nala"
 
     assert page.has_content?('nala')
     assert page.has_content?('City: ottawa, ontario')
