@@ -20,10 +20,6 @@ class RobotDirectory
     robots.map { |data| Robot.new(data) }
   end
 
-  def self.all
-    robots.map { |data| Robot.new(data) }
-  end
-
   def self.get_robot(id)
     robots.find { |robot| robot["id"] == id }
   end
@@ -34,22 +30,11 @@ class RobotDirectory
   end
 
   def self.update(id, data)
-    database.transaction do
-      robot = database['robots'].find { |robot| robot["id"] == id}
-      robot["name"] = data[:name]
-      robot["city"] = data[:city]
-      robot["state"] = data[:state]
-      # robot["avatar"] = data[:avatar]
-      robot["birthdate"] = data[:birthdate]
-      robot["datehired"] = data[:datehired]
-      robot["department"] = data[:department]
-    end
+    dataset.where(:id => id).update(data)
   end
 
   def self.delete(id)
-    database.transaction do
-      database['robots'].delete_if { |robot| robot["id"] == id }
-    end
+    dataset.where(:id => id).delete
   end
 
   def self.delete_all

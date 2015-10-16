@@ -2,14 +2,13 @@ require_relative '../test_helper.rb'
 
 class RobotTest < Minitest::Test
   def test_has_expected_attributes
-    skip
-    robot = Robot.new({'id' => 1,
-                       'name'       => 'Nala',
-                       'city'       => 'Ottawa',
-                       'state'      => 'Ontario',
-                       'birthdate'  => 'unknown',
-                       'datehired' => 'oct 2014',
-                       'department' => 'cat science' })
+    robot = Robot.new({:id         => 1,
+                       :name       => 'Nala',
+                       :city       => 'Ottawa',
+                       :state      => 'Ontario',
+                       :birthdate  => 'unknown',
+                       :datehired  => 'oct 2014',
+                       :department => 'cat science' })
 
     assert_equal 1, robot.id
     assert_equal 'Nala', robot.name
