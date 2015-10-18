@@ -77,4 +77,70 @@ class RobotDirectoryTest < Minitest::Test
 
     assert_equal [], robots
   end
+
+  def test_can_return_robots_by_date_hired
+    create_robots(2)
+    robots_by_date_hired = RobotDirectory.group_by_date_hired
+
+    expected = {"date hired 1" => 1, "date hired 2" => 1}
+
+    assert_equal expected, robots_by_date_hired
+  end
+
+  def test_returns_robot_by_year_hired_only
+    RobotDirectory.add({ :name => "nala",
+                         :city => "Ottawa",
+                         :state => "ON",
+                       # :avatar => "#avatar {i}",
+                         :birthdate => "unknown",
+                         :datehired => "10/13/2015",
+                         :department => "cat science"
+                        })
+
+    expected = {"2015" => 1}
+
+    assert_equal expected, RobotDirectory.group_by_date_hired
+  end
+
+  def test_returns_average_robot_age
+    RobotDirectory.add({ :name => "nala",
+                         :city => "Ottawa",
+                         :state => "ON",
+                         :birthdate => "10/01/2013",
+                         :datehired => "10/13/2015",
+                         :department => "cat science"
+                        })
+
+    RobotDirectory.add({ :name => "genghis",
+                         :city => "Ottawa",
+                         :state => "ON",
+                         :birthdate => "10/01/2012",
+                         :datehired => "10/01/2012",
+                         :department => "cat science"
+                        })
+
+    assert_equal 2.5, RobotDirectory.average_age
+  end
+
+  def test_returns_number_of_robots_in_each_department
+    create_robots(2)
+    expected = {"department 1" => 1, "department 2" => 1}
+
+    assert_equal expected, RobotDirectory.group_by_department
+  end
+
+  def test_returns_number_of_robots_in_each_city
+    create_robots(2)
+    expected = {"city 1" => 1, "city 2" => 1}
+
+    assert_equal expected, RobotDirectory.group_by_city
+  end
+
+  def test_returns_number_of_robots_in_each_state
+    create_robots(2)
+    expected = {"state 1" => 1, "state 2" => 1}
+
+    assert_equal expected, RobotDirectory.group_by_state
+  end
+
 end

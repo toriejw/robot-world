@@ -18,4 +18,49 @@ class HomePageTest < FeatureTest
     click_link 'Add a Robot'
     assert_equal '/robots/new', current_path
   end
+
+  def test_user_sees_number_of_robots_hired_each_year
+    # date formatting should be standardized
+    create_robots(2)
+    visit '/'
+
+    assert page.has_content?('Number of robots hired by year:')
+    assert page.has_content?('date hired 1: 1')
+    assert page.has_content?('date hired 2: 1')
+  end
+
+  def test_user_sees_average_robot_age
+    RobotDirectory.add({ :name => "nala",
+                         :city => "Ottawa",
+                         :state => "ON",
+                         :birthdate => "10/01/2013",
+                         :datehired => "10/13/2015",
+                         :department => "cat science"
+                        })
+
+    RobotDirectory.add({ :name => "genghis",
+                         :city => "Ottawa",
+                         :state => "ON",
+                         :birthdate => "10/01/2012",
+                         :datehired => "10/01/2012",
+                         :department => "cat science"
+                        })
+
+    visit '/'
+
+    assert page.has_content?('Average robot age:')
+    assert page.has_content?('2.5')
+  end
+
+  def test_user_sees_number_of_robots_in_each_department
+    skip
+  end
+
+  def test_user_sees_number_of_robots_in_each_city
+    skip
+  end
+
+  def test_user_sees_number_of_robots_in_each_state
+    skip
+  end
 end

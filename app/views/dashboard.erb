@@ -3,3 +3,15 @@
   <a href="/robots"><button>View Robots</button></a>
   <a href="/robots/new"><button>Add a Robot</button></a>
 </div>
+
+<h2>Number of robots hired by year:</h2>
+<p>
+  <% RobotDirectory.group_by_date_hired.each do |year, count| %>
+    <%= year %>: <%= count %><br>
+  <% end %>
+</p>
+
+<h2>Average robot age:</h2>
+<p>
+  <%= RobotDirectory.average_age %><br>
+</p>
