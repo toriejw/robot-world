@@ -15,3 +15,24 @@
 <p>
   <%= RobotDirectory.average_age %><br>
 </p>
+
+<h2>Number of robots in each department:</h2>
+<p>
+  <% RobotDirectory.group_by_department.each do |department, count| %>
+    <%= department %>: <%= count %><br>
+  <% end %>
+</p>
+
+<h2>Number of robots in each city:</h2>
+<p>
+  <% RobotDirectory.group_by_city.each do |city, count| %>
+    <%= city %>: <%= count %><br>
+  <% end %>
+</p>
+
+<h2>Number of robots in each state:</h2>
+<p>
+  <% RobotDirectory.group_by_state.each do |state, count| %>
+    <%= state %>: <%= count %><br>
+  <% end %>
+</p>

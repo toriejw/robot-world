@@ -53,14 +53,29 @@ class HomePageTest < FeatureTest
   end
 
   def test_user_sees_number_of_robots_in_each_department
-    skip
+    create_robots(2)
+    visit '/'
+
+    assert page.has_content?('Number of robots in each department:')
+    assert page.has_content?('department 1: 1')
+    assert page.has_content?('department 2: 1')
   end
 
   def test_user_sees_number_of_robots_in_each_city
-    skip
+    create_robots(2)
+    visit '/'
+
+    assert page.has_content?('Number of robots in each city:')
+    assert page.has_content?('city 1: 1')
+    assert page.has_content?('city 2: 1')
   end
 
   def test_user_sees_number_of_robots_in_each_state
-    skip
+    create_robots(2)
+    visit '/'
+
+    assert page.has_content?('Number of robots in each state:')
+    assert page.has_content?('state 1: 1')
+    assert page.has_content?('state 2: 1')
   end
 end
